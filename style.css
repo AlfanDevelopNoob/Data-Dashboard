@@ -1,0 +1,216 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Inter", "Segoe UI", Roboto, Arial, sans-serif;
+  background-color: #f4f7fd;
+  color: #1e293b;
+}
+
+.navbar {
+  background-color: #2563eb;
+  color: #ffffff;
+  padding: 14px 32px;
+}
+.navbar-title {
+  font-size: 20px;
+  font-weight: 600;
+  display: flex;
+  gap: 15px;
+}
+
+.container {
+  max-width: 900px;
+  margin: 24px auto;
+  padding: 0 16px;
+}
+
+.card {
+  background-color: #ffffff;
+  border: 1px solid #e8edf5;
+  border-radius: 12px;
+  overflow: hidden;
+  margin-bottom: 16px;
+}
+
+.card-cari {
+  padding: 18px 20px;
+}
+
+.label-cari {
+  display: block;
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.kotak-cari {
+  display: flex;
+  align-items: center;
+  max-width: 420px;
+  border: 1px solid #cbd5e1;
+  border-radius: 10px;
+  background-color: #ffffff;
+}
+
+.kotak-cari:focus-within {
+  border-color: #2563eb;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+}
+
+.ikon-cari {
+  margin: 0 12px;
+  font-size: 14px;
+  color: #64748b;
+  flex-shrink: 0;
+}
+
+.kotak-cari input {
+  flex: 1;
+  border: none;
+  outline: none;
+  padding: 11px 12px 11px 0;
+  font-family: inherit;
+  font-size: 14px;
+  background: transparent;
+}
+
+.info-jumlah {
+  padding: 18px 20px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #334155;
+}
+
+.bungkus-tabel {
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+
+thead th {
+  padding: 14px 20px;
+  background-color: #f8fafc;
+  border-top: 1px solid #e8edf5;
+  border-bottom: 1px solid #e8edf5;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: #64748b;
+  text-align: left;
+}
+
+tbody td {
+  padding: 16px 20px;
+  border-bottom: 1px solid #eef2f7;
+  vertical-align: middle;
+}
+
+.kolom-no {
+  width: 70px;
+}
+
+tbody td.kolom-no {
+  color: #94a3b8;
+}
+
+tbody td.kolom-nama {
+  font-weight: 700;
+  color: #0f172a;
+}
+
+thead th.kolom-tengah,
+tbody td.kolom-tengah {
+  text-align: center;
+}
+
+.baris-kosong td {
+  padding: 32px 20px;
+  text-align: center;
+  color: #64748b;
+}
+
+.tanda {
+  display: inline-block;
+  padding: 4px 12px;
+  border-radius: 999px;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.tanda-kelas {
+  background-color: #eff6ff;
+  color: #1d4ed8;
+  border-radius: 6px;
+}
+
+.tanda-hijau {
+  background-color: #dcfce7;
+  color: #166534;
+}
+
+.tanda-kuning {
+  background-color: #fef3c7;
+  color: #92400e;
+}
+
+.tanda-aktif {
+  background-color: #dcfce7;
+  color: #166534;
+}
+
+.tanda-nonaktif {
+  background-color: #e2e8f0;
+  color: #475569;
+}
+
+.tanda-merah {
+  background-color: #fee2e2;
+  color: #991b1b;
+}
+
+.card-footer {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 12px;
+  padding: 16px 20px;
+}
+
+.label-rata-rata {
+  font-size: 13px;
+  color: #64748b;
+}
+
+.nilai-rata-rata {
+  background-color: #2563eb;
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: 700;
+  padding: 6px 14px;
+  border-radius: 8px;
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 560px) {
+  .navbar {
+    padding: 14px 16px;
+  }
+
+  thead th,
+  tbody td {
+    padding: 12px 12px;
+  }
+
+  .kolom-no {
+    width: 44px;
+  }
+}
