@@ -1,50 +1,48 @@
+"use strict";
 const students = [
-  { name: "Andi Saputra",    class: "Full Stack A", score: 85, status: "Aktif" },
-  { name: "Budi Santoso",    class: "Full Stack A", score: 78, status: "Aktif" },
-  { name: "Citra Lestari",   class: "Full Stack B", score: 92, status: "Aktif" },
-  { name: "Dewi Anggraini",  class: "Backend Core", score: 88, status: "Aktif" },
-  { name: "Eko Prasetyo",    class: "Backend Core", score: 75, status: "Nonaktif" },
-  { name: "Fina Amelia",     class: "Full Stack A", score: 95, status: "Aktif" },
-  { name: "Gilang Ramadhan", class: "Full Stack B", score: 80, status: "Aktif" },
-  { name: "Hani Fitriani",   class: "Backend Core", score: 89, status: "Aktif" },
-  { name: "Irfan Hakim",     class: "Full Stack B", score: 70, status: "Nonaktif" },
-  { name: "Joko Susilo",     class: "Backend Core", score: 82, status: "Aktif" }
+    { name: "Andi Saputra", class: "Full Stack A", score: 85, status: "Aktif" },
+    { name: "Budi Santoso", class: "Full Stack A", score: 78, status: "Aktif" },
+    { name: "Citra Lestari", class: "Full Stack B", score: 92, status: "Aktif" },
+    { name: "Dewi Anggraini", class: "Backend Core", score: 88, status: "Aktif" },
+    { name: "Eko Prasetyo", class: "Backend Core", score: 75, status: "Nonaktif" },
+    { name: "Fina Amelia", class: "Full Stack A", score: 95, status: "Aktif" },
+    { name: "Gilang Ramadhan", class: "Full Stack B", score: 80, status: "Aktif" },
+    { name: "Hani Fitriani", class: "Backend Core", score: 89, status: "Aktif" },
+    { name: "Irfan Hakim", class: "Full Stack B", score: 70, status: "Nonaktif" },
+    { name: "Joko Susilo", class: "Backend Core", score: 82, status: "Aktif" }
 ];
-
 const inputCari = document.getElementById("inputCari");
 const infoJumlah = document.getElementById("infoJumlah");
 const tableBody = document.getElementById("isiTabelSiswa");
 const nilaiRataRata = document.getElementById("nilaiRataRata");
-
 function getScoreClass(score) {
-  if (score >= 85) {
-    return "tanda-hijau";
-  } else if (score >= 75) {
-    return "tanda-kuning";
-  } else {
-    return "tanda-merah";
-  }
+    if (score >= 85) {
+        return "tanda-hijau";
+    }
+    else if (score >= 75) {
+        return "tanda-kuning";
+    }
+    else {
+        return "tanda-merah";
+    }
 }
-
 function getStatusClass(status) {
-  if (status === "Aktif") {
-    return "tanda-aktif";
-  } else {
-    return "tanda-nonaktif";
-  }
+    if (status === "Aktif") {
+        return "tanda-aktif";
+    }
+    else {
+        return "tanda-nonaktif";
+    }
 }
-
 function renderTable(data) {
-  infoJumlah.textContent = "Siswa " + data.length + " dari " + students.length + " siswa";
-
-  if (data.length === 0) {
-    tableBody.innerHTML =
-      '<tr class="baris-kosong"><td colspan="5">Siswa tidak ditemukan. Coba kata kunci lain.</td></tr>';
-    return;
-  }
-
-  const rows = data.map(function (student, index) {
-    return `
+    infoJumlah.textContent = "Siswa " + data.length + " dari " + students.length + " siswa";
+    if (data.length === 0) {
+        tableBody.innerHTML =
+            '<tr class="baris-kosong"><td colspan="5">Siswa tidak ditemukan. Coba kata kunci lain.</td></tr>';
+        return;
+    }
+    const rows = data.map(function (student, index) {
+        return `
       <tr>
         <td class="kolom-no">${index + 1}</td>
         <td class="kolom-nama">${student.name}</td>
@@ -53,36 +51,28 @@ function renderTable(data) {
         <td class="kolom-tengah"><span class="tanda ${getScoreClass(student.score)}">${student.score}</span></td>
       </tr>
     `;
-  });
-
-  tableBody.innerHTML = rows.join("");
+    });
+    tableBody.innerHTML = rows.join("");
 }
-
 function renderAverage(data) {
-  if (data.length === 0) {
-    nilaiRataRata.textContent = "0";
-    return;
-  }
-
-  const totalScore = data.reduce(function (total, student) {
-    return total + student.score;
-  }, 0);
-
-  const average = totalScore / data.length;
-
-  nilaiRataRata.textContent = average.toFixed(1);
+    if (data.length === 0) {
+        nilaiRataRata.textContent = "0";
+        return;
+    }
+    const totalScore = data.reduce(function (total, student) {
+        return total + student.score;
+    }, 0);
+    const average = totalScore / data.length;
+    nilaiRataRata.textContent = average.toFixed(1);
 }
-
 inputCari.addEventListener("input", function () {
-  const keyword = inputCari.value.toLowerCase().trim();
-
-  const filterStudents = students.filter(function (student) {
-    return student.name.toLowerCase().includes(keyword);
-  });
-
-  renderTable(filterStudents);
-  renderAverage(filterStudents);
+    const keyword = inputCari.value.toLowerCase().trim();
+    const filterStudents = students.filter(function (student) {
+        return student.name.toLowerCase().includes(keyword);
+    });
+    renderTable(filterStudents);
+    renderAverage(filterStudents);
 });
-
 renderTable(students);
 renderAverage(students);
+//# sourceMappingURL=script.js.map
